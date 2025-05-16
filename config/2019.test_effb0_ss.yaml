@@ -1,0 +1,58 @@
+# config/2019.test_effb0_ss.yaml
+
+# ----------------------------------------
+# Dataset paths
+# ----------------------------------------
+DATA_ROOT: "C:/Users/Dan/Desktop/mestrado/2Semestre/DeepLearn/Datasets/ISIC2019_cropped"
+TRAIN_CSV: "C:/Users/Dan/Desktop/mestrado/2Semestre/DeepLearn/Datasets/ISIC2019_cropped/Training/ISIC_2019_Training_GroundTruth.csv"
+TEST_CSV:  "C:/Users/Dan/Desktop/mestrado/2Semestre/DeepLearn/Datasets/ISIC2019_cropped/Testing/ISIC_2019_Test_GroundTruth.csv"
+TRAIN_IMG: "C:/Users/Dan/Desktop/mestrado/2Semestre/DeepLearn/Datasets/ISIC2019_cropped/Training/images"
+TEST_IMG:  "C:/Users/Dan/Desktop/mestrado/2Semestre/DeepLearn/Datasets/ISIC2019_cropped/Testing/images"
+
+# ----------------------------------------
+# Model & training hyperparameters
+# ----------------------------------------
+MODEL_TYPE:   "efficientnet_b0"
+NUM_CLASSES:  9
+BATCH_SIZE:   128
+NUM_EPOCHS:   40
+LEARNING_RATE: 3e-4
+WEIGHT_DECAY:  1e-4
+TRAIN_FRACTION: 1.0
+NUM_WORKERS:   4
+
+# ----------------------------------------
+# Class names (in same order as CSV one-hot columns)
+# ----------------------------------------
+CLASS_NAMES:
+  - MEL
+  - NV
+  - BCC
+  - AK
+  - BKL
+  - DF
+  - VASC
+  - SCC
+  - UNK
+
+# ----------------------------------------
+# Data augmentation settings (optional)
+# ----------------------------------------
+RESIZE:       [256, 256]
+CROP_SIZE:    224
+HFLIP_P:      0.5
+VFLIP_P:      0.5
+AFFINE_DEGREES: 45
+AFFINE_SCALE: [1.0, 1.05]
+AFFINE_P:     0.5
+COLOR_JITTER: [0.2, 0.2, 0.2]
+CJ_P:         0.5
+CUTOUT_HOLES: 1
+CUTOUT_LENGTH: 16
+CUTOUT_P:     0.5
+
+# ----------------------------------------
+# Normalization (ImageNet)
+# ----------------------------------------
+NORM_MEAN: [0.485, 0.456, 0.406]
+NORM_STD:  [0.229, 0.224, 0.225]
